@@ -21,6 +21,7 @@ package com.cleverage.robotlegstwitter.commands
     override public function execute() : void
     {
       trace("updating model");
+      model.clear();
       model.addTweets(dispatched.results);
     }
   }

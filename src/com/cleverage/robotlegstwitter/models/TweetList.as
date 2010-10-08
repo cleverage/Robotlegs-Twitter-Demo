@@ -17,7 +17,7 @@ package com.cleverage.robotlegstwitter.models
     
     public function clear() : void
     {
-      tweets = Vector.<Tweet>;
+      tweets = new Vector.<Tweet>();
       dispatch(new TweetListEvent(TweetListEvent.CLEARED));
     }
     
