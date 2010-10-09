@@ -18,7 +18,6 @@ package com.cleverage.robotlegstwitter.views
       super();
       container = new Sprite();
       addChild(container);
-      setInterval(function() : void { container.x -= 20 }, 100);
     }
 
     public function get tweets() : Vector.<Tweet>
@@ -53,10 +52,9 @@ package com.cleverage.robotlegstwitter.views
       for (index = 0; index < container.numChildren; index++)
       {
         child = container.getChildAt(index);
-        trace(index, child);
+
         if (child is TweetView)
         {
-          trace("child is TweetView");
           container.removeChild(child);
           child = null;
         }

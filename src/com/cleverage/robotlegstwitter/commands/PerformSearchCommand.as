@@ -20,7 +20,6 @@ package com.cleverage.robotlegstwitter.commands
     
     override public function execute() : void
     {
-      trace("Search for", dispatched.keyword);  
       service.searchFor(dispatched.keyword);
     }
   }

@@ -10,7 +10,7 @@ package
   import flash.events.Event;
   import flash.text.Font;
   
-  [SWF(width="600", height="600", frameRate="60")]
+  [SWF(width="650", height="600", frameRate="60")]
   public class RobotlegsTwitterDemo extends Sprite
   {
     protected var context : RobotlegsTwitterContext;
@@ -55,6 +55,7 @@ package
       addChild(form);
       
       var screen : TweetScreen = new TweetScreen();
+      screen.y = stage.stageHeight / 2;      
       addChild(screen);
     }
   }
