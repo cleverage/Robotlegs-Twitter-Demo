@@ -5,6 +5,7 @@ package com.cleverage.robotlegstwitter.services
   import com.cleverage.robotlegstwitter.models.Tweet;
   
   import flash.events.Event;
+  import flash.events.IOErrorEvent;
   import flash.net.URLLoader;
   import flash.net.URLRequest;
   import flash.net.URLRequestMethod;
@@ -23,6 +24,7 @@ package com.cleverage.robotlegstwitter.services
     {
       var loader : URLLoader = new URLLoader();
       loader.addEventListener(Event.COMPLETE, searchCompleteHandler);
+      loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
       
       var target : URLRequest = new URLRequest("http://search.twitter.com/search.atom");
       target.method = URLRequestMethod.POST;
@@ -31,6 +33,11 @@ package com.cleverage.robotlegstwitter.services
       
       loader.load(target);
       dispatch(new SearchEvent(SearchEvent.START));
+    }
+    
+    protected function errorHandler(e : IOErrorEvent) : void
+    {
+      dispatch(new SearchEvent(SearchEvent.ERROR));
     }
     
     protected function searchCompleteHandler(e : Event) : void
@@ -48,6 +55,14 @@ package com.cleverage.robotlegstwitter.services
       }
       
       dispatch(new SearchResultEvent(SearchResultEvent.RESULTS, tweets));
+    }
+    
+    protected function unload(loader : URLLoader) : void
+    {
+      loader.removeEventListener(Event.COMPLETE, searchCompleteHandler);
+      loader.removeEventListener(IOErrorEvent.IO_ERROR, errorHandler);
+      loader.close();
+      loader = null;
     }
   }
 }

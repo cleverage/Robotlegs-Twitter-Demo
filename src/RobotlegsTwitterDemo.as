@@ -34,8 +34,8 @@ package
       if (!loader)
       {
         loader = new Sprite();
-        loader.graphics.beginFill(0xff0000);
-        loader.graphics.drawRect(0, 0, 500, 200);
+        loader.graphics.beginFill(0x000000, .8);
+        loader.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
         loader.graphics.endFill();
       }
       

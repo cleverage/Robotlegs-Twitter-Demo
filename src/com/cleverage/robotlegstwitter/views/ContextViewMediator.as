@@ -21,6 +21,12 @@ package com.cleverage.robotlegstwitter.views
       trace("context view up and running");
       eventMap.mapListener(eventDispatcher, SearchEvent.START, searchStartedHandler);
       eventMap.mapListener(eventDispatcher, SearchResultEvent.RESULTS, searchCompleteHandler);
+      eventMap.mapListener(eventDispatcher, SearchEvent.ERROR, errorHandler);
+    }
+    
+    protected function errorHandler(e : SearchEvent) : void
+    {
+      
     }
     
     protected function searchStartedHandler(e : SearchEvent) : void

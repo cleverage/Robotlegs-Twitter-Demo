@@ -6,6 +6,8 @@ package com.cleverage.robotlegstwitter.events
   {
     static public const START : String = "SearchEvent.START";
     static public const SEARCH : String = "SearchEvent.SEARCH";
+    static public const ERROR : String = "SearchEvent.ERROR";
+    
     
     public var keyword : String;
     
