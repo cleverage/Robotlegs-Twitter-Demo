@@ -52,17 +52,9 @@ package com.cleverage.robotlegstwitter.views
     
     public function clear() : void
     {
-      var child : DisplayObject;
-      var index : int = 0;
-      for (index = 0; index < container.numChildren; index++)
+      while (container.numChildren > 0)
       {
-        child = container.getChildAt(index);
-
-        if (child is TweetView)
-        {
-          container.removeChild(child);
-          child = null;
-        }
+        container.removeChildAt(container.numChildren - 1);
       }
     }
 
