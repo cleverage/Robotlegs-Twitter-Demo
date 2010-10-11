@@ -1,9 +1,14 @@
 package com.cleverage.robotlegstwitter.views
 {
   import com.cleverage.robotlegstwitter.models.Tweet;
+  import com.greensock.TweenLite;
+  import com.greensock.easing.Back;
   
   import flash.display.DisplayObject;
   import flash.display.Sprite;
+  import flash.events.Event;
+  import flash.events.KeyboardEvent;
+  import flash.ui.Keyboard;
   import flash.utils.setInterval;
   import flash.utils.setTimeout;
   
@@ -16,8 +21,8 @@ package com.cleverage.robotlegstwitter.views
     public function TweetScreen()
     {
       super();
-      container = new Sprite();
-      addChild(container);
+
+      addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
     }
 
     public function get tweets() : Vector.<Tweet>
@@ -68,7 +73,48 @@ package com.cleverage.robotlegstwitter.views
 
     public function set index(value : int):void
     {
+      var posX : Number = - (value * 630);
+      TweenLite.to(container, 1, {x: posX, ease: Back.easeOut});
+      
       _index = value;
+    }
+    
+    protected function addedToStageHandler(e : Event) : void
+    {
+      removeEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
+      
+      // tweets container
+      container = new Sprite();
+      addChild(container);
+      
+      // keyboard listeners
+      stage.addEventListener(KeyboardEvent.KEY_UP, keyUppedHandler);
+    }
+    
+    protected function keyUppedHandler(e : KeyboardEvent) : void
+    {
+      if (e.keyCode == Keyboard.LEFT)
+      {
+        if (index == 0)
+        {
+          index = tweets.length - 1;
+        }
+        else
+        {
+          index --;
+        }
+      }
+      else if (e.keyCode == Keyboard.RIGHT) 
+      {
+        if (index == (tweets.length - 1))
+        {
+          index = 0;
+        }
+        else
+        {
+          index ++;
+        }
+      }
     }
   }
 }

@@ -53,7 +53,7 @@ package com.cleverage.robotlegstwitter.views
     
     protected function tweetListChangedHandler(e : TweetListEvent) : void
     {
-      screen.clear()
+      screen.clear();
       screen.tweets = list.tweets; 
     }
   }
