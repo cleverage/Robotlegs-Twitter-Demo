@@ -56,11 +56,11 @@ package com.cleverage.robotlegstwitter.views
       
       // drawing border
       var border : Sprite = new Sprite();
-      border.graphics.beginFill(0x00ff00);
+      border.graphics.beginFill(0x6ec5d7);
       border.graphics.drawRect(0, 0, 630, Math.round(content.textHeight) + 30);
       border.graphics.endFill();
       
-      border.graphics.lineStyle(5, 0x00cc00);
+      border.graphics.lineStyle(5, 0x1570b2);
       border.graphics.drawRect(0, 0, 630, Math.round(content.textHeight) + 30);
       border.graphics.endFill();
       addChild(border);
