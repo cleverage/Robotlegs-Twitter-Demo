@@ -23,7 +23,7 @@ package com.cleverage.robotlegstwitter.views
     protected var _tweet : Tweet;
     
     [Embed(source='/assets/fonts/picoblack.ttf', fontFamily='Pico', embedAsCFF="false")]
-    static public var Pico : Class;
+    static public const Pico : Class;
     
     public function TweetView()
     {

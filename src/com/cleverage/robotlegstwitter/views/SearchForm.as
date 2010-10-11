@@ -17,10 +17,10 @@ package com.cleverage.robotlegstwitter.views
   public class SearchForm extends Sprite
   {
     [Embed(source='/assets/fonts/picoblack.ttf', fontFamily='Pico', embedAsCFF="false")]
-    static public var Pico : Class;
+    static public const Pico : Class;
     
-    static public var TEXT_COLOR_NORMAL : Number = 0x000000;
-    static public var TEXT_COLOR_HOVER : Number = 0xFFFFFF;
+    static public const TEXT_COLOR_NORMAL : Number = 0x000000;
+    static public const TEXT_COLOR_HOVER : Number = 0xFFFFFF;
     
     protected var _keyword : TextField;
     protected var trigger : Sprite;

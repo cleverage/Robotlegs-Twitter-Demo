@@ -13,5 +13,10 @@ package com.cleverage.robotlegstwitter.events
     {
       super(type, true, true);
     }
+    
+    override public function clone() : Event
+    {
+      return new TweetListEvent(type);
+    }
   }
 }

@@ -4,7 +4,7 @@ package com.cleverage.robotlegstwitter.events
   
   public class SearchResultEvent extends Event
   {
-    public var results : Array;
+    protected var _results : Array;
     
     static public const RESULTS : String = "SearchResultEvent.RESULTS";
     
@@ -14,5 +14,21 @@ package com.cleverage.robotlegstwitter.events
       
       this.results = results;
     }
+    
+    override public function clone() : Event
+    {
+      return new SearchResultEvent(type, results);
+    }
+
+    public function get results():Array
+    {
+      return _results;
+    }
+
+    public function set results(value:Array):void
+    {
+      _results = value;
+    }
+
   }
 }

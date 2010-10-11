@@ -9,7 +9,7 @@ package com.cleverage.robotlegstwitter.events
     static public const ERROR : String = "SearchEvent.ERROR";
     
     
-    public var keyword : String;
+    protected var _keyword : String;
     
     public function SearchEvent(type:String, keyword : String = null)
     {
@@ -21,5 +21,16 @@ package com.cleverage.robotlegstwitter.events
     {
       return new SearchEvent(type, keyword);  
     }
+
+    public function get keyword():String
+    {
+      return _keyword;
+    }
+
+    public function set keyword(value:String):void
+    {
+      _keyword = value;
+    }
+
   }
 }

@@ -8,12 +8,28 @@ package com.cleverage.robotlegstwitter.events
   {
     static public const ADDED : String = "TweetEvent.ADDED";
     
-    public var tweet : Tweet;
+    protected var _tweet : Tweet;
     
     public function TweetEvent(type:String, tweet : Tweet)
     {
       super(type, true, true);
       this.tweet = tweet;
     }
+    
+    override public function clone() : Event 
+    {
+      return new TweetEvent(type, tweet);
+    }
+
+    public function get tweet():Tweet
+    {
+      return _tweet;
+    }
+
+    public function set tweet(value:Tweet):void
+    {
+      _tweet = value;
+    }
+
   }
 }

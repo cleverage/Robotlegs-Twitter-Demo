@@ -37,8 +37,7 @@ package com.cleverage.robotlegstwitter.views
       
       var current : Tweet;
       var view : TweetView;
-      var index : uint = 0;
-      
+
       for each (current in tweets)
       {
         view = new TweetView();

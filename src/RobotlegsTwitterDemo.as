@@ -54,7 +54,7 @@ package
       var form : SearchForm = new SearchForm();
       addChild(form);
       
-      var screen : TweetScreen = new TweetScreen();
+      screen = new TweetScreen();
       screen.y = stage.stageHeight / 2;      
       addChild(screen);
     }

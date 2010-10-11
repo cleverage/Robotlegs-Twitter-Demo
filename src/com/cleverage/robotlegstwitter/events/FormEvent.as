@@ -10,5 +10,10 @@ package com.cleverage.robotlegstwitter.events
     {
       super(type, true, true);
     }
+    
+    override public function clone() : Event
+    {
+      return new FormEvent(type);
+    }
   }
 }
